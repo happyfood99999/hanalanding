@@ -3,6 +3,7 @@ import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { Separator } from "../../components/ui/separator";
 import { Copy } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const shuffleText = (text: string): string => {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -15,6 +16,7 @@ const shuffleText = (text: string): string => {
 // Data for navigation items
 const navItems = [
   { text: "PURPOSE", link: "#who-am-i" },
+  { text: "TAPES", link: "#tapes" },
   { text: "POWERS", link: "#powers" },
   { text: "MEDIA", link: "#media" },
   { text: "TOKEN", link: "#token" },
@@ -35,8 +37,8 @@ const mediaCards = [
     title: "MANGA",
     link: "https://personajourney.io/manga",
     description:
-      "Hana unveils the mysteries of Timfall Valley in Shards of a Stained Reverie, the official Persona manga.",
-    backgroundImage: "public/chapter-1-cover-8-22-24-2.png",
+      "Hana unveils the mysteries of Timefall Valley in Shards of a Stained Reverie, the official Persona manga.",
+    backgroundImage: "https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafybeib5xfejcjpn2jpqspdvauqxlhdje5jqvubgjd32sr5oyhbmtkyd7q",
   },
   {
     title: "WELCOME TO THE VALLEY",
@@ -70,7 +72,7 @@ const agenticPowersLeft = [
   },
   {
     title: "TRANSMEDIA INTERACTIONS",
-    content: "Engages with users 24/7 on social media platforms such as X, Twitter, Telegram."
+    content: "Engages with users 24/7 on social media platforms such as X, Telegram, Instagram."
   }
 ];
 
@@ -81,7 +83,7 @@ const agenticPowersRight = [
   },
   {
     title: "CROSS-PLATFORM",
-    content: "• Twitter\n• Tiktok\n• Instagram (coming soon)"
+    content: "• Twitter\n• Telegram\n• Tiktok\n• Instagram (coming soon)"
   },
   {
     title: "PERSONALIZED",
@@ -96,6 +98,7 @@ const agenticPowersRight = [
 // Footer navigation items
 const footerNavItems = [
   { text: "PURPOSE", link: "#who-am-i" },
+  { text: "TAPES", link: "#tapes" },
   { text: "POWERS", link: "#powers" },
   { text: "MEDIA", link: "#media" },
   { text: "TOKEN", link: "#token" },
@@ -108,6 +111,7 @@ export const LHome = (): JSX.Element => {
   const [mouseX, setMouseX] = React.useState(0);
   const [titleText, setTitleText] = React.useState("HI,\nI'M HANA");
   const [isDesktop, setIsDesktop] = React.useState(window.innerWidth >= 768);
+  const [showEmailCopied, setShowEmailCopied] = React.useState(false);
 
   React.useEffect(() => {
     const originalText = "HI,\nI'M HANA";
@@ -155,6 +159,16 @@ export const LHome = (): JSX.Element => {
       setTimeout(() => setShowCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
+    }
+  };
+
+  const handleEmailCopy = async () => {
+    try {
+      await navigator.clipboard.writeText("contact@unagi.games");
+      setShowEmailCopied(true);
+      setTimeout(() => setShowEmailCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email:", err);
     }
   };
 
@@ -223,7 +237,7 @@ export const LHome = (): JSX.Element => {
                   ))}
                 </div>
 
-                <a 
+                <a
                   href="https://x.com/HanaPersona_"
                   target="_blank"
                   rel="noopener noreferrer" 
@@ -243,7 +257,7 @@ export const LHome = (): JSX.Element => {
 
                 <Button 
                   onClick={handleCopy}
-                  className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors relative"
+                  className="hidden md:flex h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors relative"
                 >
                   <span className="relative w-[140px] mt-[-11.00px] mb-[-9.00px] font-sub-XS font-[number:var(--sub-XS-font-weight)] text-[#0f100d] text-[length:var(--sub-XS-font-size)] text-center tracking-[var(--sub-XS-letter-spacing)] leading-[var(--sub-XS-line-height)] whitespace-nowrap [font-style:var(--sub-XS-font-style)]">
                     {showCopied ? "COPIED!" : "$HANA: 0X1CF...F4C9"}
@@ -268,7 +282,7 @@ export const LHome = (): JSX.Element => {
               alt="Character"
               src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreiavk2mdwo55groqmqiij3zkbyimuakxjnsyx2gd5tts773njjnmge"
             />
-            <div className="absolute w-full md:w-[584px] h-[669px] top-[94px] left-0 md:left-10 px-4 md:px-0 [font-family:'Anton_SC',Helvetica] font-normal text-[#fff8ef] text-[120px] md:text-[200px] tracking-[-3.00px] leading-[143px] md:leading-[223px] text-center md:text-left">
+            <div className="absolute w-full md:w-[584px] h-[669px] top-[80px] sm:top-[94px] md:top-[94px] left-0 md:left-10 px-4 md:px-0 [font-family:'Anton_SC',Helvetica] font-normal text-[#fff8ef] text-[80px] sm:text-[100px] md:text-[200px] tracking-[-3.00px] leading-[96px] sm:leading-[120px] md:leading-[223px] text-center md:text-left">
               {titleText.split('\n').map((line, i) => (
                 <React.Fragment key={i}>
                   {line}
@@ -289,8 +303,8 @@ export const LHome = (): JSX.Element => {
 
           <Card className="relative w-full max-w-[1320px] h-auto md:h-[437px] bg-[#fefae9] rounded-3xl overflow-hidden border-0">
             <CardContent className="p-0 relative h-full flex">
-              <div className="relative w-full md:w-[400px] bg-[#fefae9] h-full z-10">
-                <div className="p-10 md:p-0 md:pt-[53px] md:pl-10 font-body-s text-[#0f100d] text-[length:var(--body-s-font-size)] tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)] font-normal">
+              <div className="relative w-full md:w-[400px] bg-[#fefae9] h-full z-10 overflow-hidden">
+                <div className="p-10 md:p-0 md:pt-[53px] md:px-10 font-body-s text-[#0f100d] text-[length:var(--body-s-font-size)] tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)] font-normal">
                   <p className="text-[#0f100d]">
                     Introduced in September 2023 -&nbsp;&nbsp;Hana is the main
                     character of the Persona brand and story. <br />
@@ -306,7 +320,7 @@ export const LHome = (): JSX.Element => {
                     interaction shapes her evolving story.
                   </p>
                 </div>
-                <div className="absolute right-0 top-0 w-[40px] h-full bg-gradient-to-r from-[#fefae9] to-transparent z-20" />
+                <div className="absolute right-0 top-0 w-[40px] h-full bg-gradient-to-r from-[#fefae9] to-transparent z-20 pointer-events-none" />
               </div>
 
               <div className="relative flex-1 h-full">
@@ -329,7 +343,8 @@ export const LHome = (): JSX.Element => {
                   <div className="absolute w-[calc(100%-40px)] md:w-[calc(100%-80px)] max-w-[476px] bottom-[120px] left-5 md:left-10 font-body-s font-[number:var(--body-s-font-weight)] text-[#fefae9] text-[length:var(--body-s-font-size)] tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)]">
                     Hana is the main character of tomorrow.
                     <br />
-                    <br />A transmedia agentic character featured in short
+                    <br />
+                    A transmedia agentic character featured in short
                     films, manga, games and living alongside us every day as an
                     agent on social media. <br />
                     <br />
@@ -337,7 +352,7 @@ export const LHome = (): JSX.Element => {
                     Hana is at the center of it.
                   </div>
 
-                  <div className="absolute w-[calc(100%-40px)] md:w-[calc(100%-80px)] max-w-[568px] h-16 bottom-10 left-5 md:left-10 font-display-MD font-[number:var(--display-MD-font-weight)] text-[#fefae9] text-[40px] md:text-[length:var(--display-MD-font-size)] tracking-[var(--display-MD-letter-spacing)] leading-[1.1] md:leading-[var(--display-MD-line-height)] [font-style:var(--display-MD-font-style)]">
+                  <div className="absolute w-[calc(100%-40px)] md:w-[calc(100%-80px)] max-w-[568px] h-16 bottom-10 left-5 md:left-10 font-display-MD font-[number:var(--display-MD-font-weight)] text-[#fefae9] text-[32px] md:text-[48px] tracking-[var(--display-MD-letter-spacing)] leading-[1.1] md:leading-[var(--display-MD-line-height)] [font-style:var(--display-MD-font-style)]">
                     MAIN CHARACTER 2.0
                   </div>
                 </div>
@@ -347,7 +362,7 @@ export const LHome = (): JSX.Element => {
             <Card className="relative w-full md:w-[648px] h-[704px] bg-black rounded-3xl overflow-hidden border-0">
               <CardContent className="p-0">
                 <div className="relative w-full h-[704px] flex flex-col items-center justify-between py-10">
-                  <div className="w-full md:w-[502px] px-6 md:px-0 font-display-MD font-[number:var(--display-MD-font-weight)] text-[#fefae9] text-[length:var(--display-MD-font-size)] text-center tracking-[var(--display-MD-letter-spacing)] leading-[var(--display-MD-line-height)] [font-style:var(--display-MD-font-style)]">
+                  <div className="w-full md:w-[502px] px-6 md:px-0 font-display-MD font-[number:var(--display-MD-font-weight)] text-[#fefae9] text-[32px] md:text-[48px] text-center tracking-[var(--display-MD-letter-spacing)] leading-[1.1] md:leading-[var(--display-MD-line-height)] [font-style:var(--display-MD-font-style)]">
                     SUPERCHARGED AGENT
                   </div>
 
@@ -360,14 +375,45 @@ export const LHome = (): JSX.Element => {
                     src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafybeiftr25ndcxyq6qejbmyxjajhv4vagcw5p4goytsmhjphnnzwjpapq"
                   ></video>
 
-                  <div className="w-full md:w-[542px] px-6 md:px-0 font-body-s font-[number:var(--body-s-font-weight)] text-[#fefae9] text-[length:var(--body-s-font-size)] text-center tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)]">
-                    Hana is a supercharged agent - gifted with the latest agentic
+                  <div className="w-full md:w-[542px] px-6 md:px-8 font-body-s font-[number:var(--body-s-font-weight)] text-[#fefae9] text-[14px] md:text-[length:var(--body-s-font-size)] text-center tracking-[var(--body-s-letter-spacing)] leading-[1.5] md:leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)]">
+                    Hana is a supercharged agent part of the <a href="https://app.virtuals.io/virtuals/20453" target="_blank" rel="noopener noreferrer" className="underline hover:text-red-500 transition-colors">Virtuals</a> ecosystem - gifted with the latest agentic
                     innovations to interact with her community on socials, create
                     content and innovate.
                   </div>
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+
+        {/* Tapes Section */}
+        <div id="tapes" className="inline-flex flex-col h-auto items-center gap-[30px] py-2.5 relative w-full">
+          <div className="relative w-full max-w-[1320px] h-auto md:h-[437px]">
+            <div className="p-0 relative h-full flex flex-col md:flex-row">
+              <div className="relative w-full md:w-[500px] h-full z-10 overflow-hidden p-10 md:p-16 flex flex-col">
+                <div className="font-body-s text-[#0F100D] text-[length:var(--body-s-font-size)] tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)] font-normal">
+                  <p>
+                    Hana is gifted with a <span className="font-bold">state of the art custom tool</span> to create short movies from Persona avatars.
+                    <br />
+                    <br />
+                    Short movies are fully created and edited by herself, including the movie script, every clip generation, audio tack and credits.
+                  </p>
+                </div>
+                <Link to="/tapes" className="relative mt-8 w-fit mb-[-9.00px] [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#E6E2DC] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
+                  <Button className="h-10 gap-2 px-5 py-6 bg-[#0F100D] rounded-[1000px] overflow-hidden hover:bg-[#2F3029] transition-colors self-start">
+                    DISCOVER PERSONA TAPES!
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="relative flex-1 h-full p-4 md:p-8">
+                <img
+                  className="w-full h-full object-contain"
+                  alt="Persona Tapes"
+                  src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafybeihod3zcq45bsqv3mewh3jdi7e3o5vzuvjxhzmdhlnxscd73v4wk7e"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -447,13 +493,12 @@ export const LHome = (): JSX.Element => {
                         <img
                           className="w-full h-full object-cover object-left-bottom"
                           src={mediaCards[0].backgroundImage}
-                          alt="Manga background"
+                          alt="Manga cover"
                         />
-                        <div className="absolute inset-0 bg-black/30" />
                       </div>
-                      <div className="absolute bottom-10 right-10 flex flex-col gap-6 text-right">
-                        <h3 className="text-[64px] leading-[72px] font-['Anton_SC'] text-[#fefae9]">{mediaCards[0].title}</h3>
-                        <p className="text-[#fefae9] text-sm whitespace-pre-line font-bold max-w-[400px] ml-auto">{mediaCards[0].description}</p>
+                      <div className="absolute bottom-10 right-10 md:right-10 left-10 md:left-auto flex flex-col gap-3 text-center md:text-right">
+                        <h3 className="text-[40px] sm:text-[48px] md:text-[64px] leading-[1.1] md:leading-[72px] font-['Anton_SC'] text-[#fefae9]">{mediaCards[0].title}</h3>
+                        <p className="text-[#fefae9] text-sm whitespace-pre-line [font-family:'Helvetica_Now_Display-Bold',Helvetica] max-w-[400px] mx-auto md:ml-auto md:mr-0">{mediaCards[0].description}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -464,11 +509,11 @@ export const LHome = (): JSX.Element => {
             {mediaCards.slice(1).map((card, index) => (
               <Card
                 key={index}
-                className="relative self-stretch w-full h-[704px] bg-[#010101] rounded-3xl overflow-hidden border-0"
+                className="relative self-stretch w-full h-[400px] md:h-[704px] bg-[#010101] rounded-3xl overflow-hidden border-0"
               >
                 <CardContent className="p-0">
                   <div
-                    className="relative w-full h-[704px] bg-cover bg-center"
+                    className="relative w-full h-[400px] md:h-[704px] bg-cover bg-center"
                     style={{ backgroundImage: `url(${card.backgroundImage})` }}
                   >
                     <div className="absolute inset-0 w-full h-full">
@@ -479,25 +524,27 @@ export const LHome = (): JSX.Element => {
                         loop={!playingStates[card.title]}
                         muted={true}
                         playsInline
-                        className="absolute w-full h-[704px] top-0 left-0 object-cover"
+                        className="absolute w-full h-[400px] md:h-[704px] top-0 left-0 object-cover"
                         src={playingStates[card.title] ? card.videoUrl : card.previewUrl}
                         controls={playingStates[card.title]}
                       />
                     )}
 
                     {!playingStates[card.title] && (
+                      <div className="absolute inset-0 flex items-center justify-center">
                       <Button 
                         onClick={() => card.videoUrl ? handleVideoClick(card.title) : undefined}
-                        className="absolute top-[332px] left-[642px] h-10 gap-2 px-5 py-6 bg-[#f6f5f3] rounded-[1000px] overflow-hidden hover:bg-[#e6e6e3] z-10"
+                        className="h-10 gap-2 px-5 py-6 bg-[#f6f5f3] rounded-[1000px] overflow-hidden hover:bg-[#e6e6e3] z-10"
                       >
                         <span className="relative w-fit mt-[-11.00px] mb-[-9.00px] font-sub-XS font-[number:var(--sub-XS-font-weight)] text-[#0f100d] text-[length:var(--sub-XS-font-size)] text-center tracking-[var(--sub-XS-letter-spacing)] leading-[var(--sub-XS-line-height)] whitespace-nowrap [font-style:var(--sub-XS-font-style)]">
                           PLAY
                         </span>
                       </Button>
+                      </div>
                     )}
 
                     {!playingStates[card.title] && (
-                      <div className="absolute h-16 top-[586px] left-10 font-display-MD font-[number:var(--display-MD-font-weight)] text-[#fefae9] text-[length:var(--display-MD-font-size)] tracking-[var(--display-MD-letter-spacing)] leading-[var(--display-MD-line-height)] whitespace-nowrap [font-style:var(--display-MD-font-style)]">
+                      <div className="absolute h-16 bottom-10 left-10 font-display-MD font-[number:var(--display-MD-font-weight)] text-[#fefae9] text-[32px] sm:text-[40px] md:text-[length:var(--display-MD-font-size)] tracking-[var(--display-MD-letter-spacing)] leading-[1.1] md:leading-[var(--display-MD-line-height)] whitespace-pre-wrap md:whitespace-nowrap max-w-[calc(100%-80px)] [font-style:var(--display-MD-font-style)]">
                         {card.title}
                       </div>
                     )}
@@ -512,14 +559,52 @@ export const LHome = (): JSX.Element => {
         {/* Hana Token Section */}
         <div id="token" className="flex flex-col min-h-screen items-center gap-5 px-4 md:px-0 py-5 bg-[#e6e2db] w-full">
           <h1 className="w-full md:w-[454px] font-display-LG font-[number:var(--display-LG-font-weight)] text-[length:var(--display-LG-font-size)] text-center tracking-[var(--display-LG-letter-spacing)] leading-[var(--display-LG-line-height)] text-[#0f100d] [font-style:var(--display-LG-font-style)]">
-            $HANA TOKEN
+            HANA TOKEN
           </h1>
+          
+          <div className="flex flex-col md:flex-row items-center gap-4 mb-4">
+            <a
+              href="https://app.uniswap.org/swap?outputCurrency=0x1cfc22860Fe46A622e3C2D1c9b036412467Ef4C9&chain=base"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 relative flex-[0_0_auto]"
+            >
+              <Button className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors">
+                <span className="relative w-fit mt-[-11.00px] mb-[-9.00px] [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
+                  PURCHASE ON UNISWAP
+                </span>
+                <img
+                  className="relative w-6 h-6 mt-[-16.00px] mb-[-16.00px]"
+                  alt="Uniswap logo"
+                  src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreidacemxtclxbzuf6jqjv57txxh4izeuk6pre4sbll44pe5grk4iea"
+                />
+              </Button>
+            </a>
+            
+            <a
+              href="https://app.virtuals.io/virtuals/20453"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 relative flex-[0_0_auto]"
+            >
+              <Button className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors">
+                <span className="relative w-fit mt-[-11.00px] mb-[-9.00px] [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
+                  VIRTUALS
+                </span>
+                <img
+                  className="relative w-6 h-6 mt-[-16.00px] mb-[-16.00px]"
+                  alt="Virtuals logo"
+                  src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreidcspjjlbf6jyc5gec4ga7njsrvy6ytjwnw5judwonmqbyuv3gbe4"
+                />
+              </Button>
+            </a>
+          </div>
 
           <div className="w-full max-w-[1320px] flex flex-col gap-5">
             <Card className="flex flex-col md:flex-row items-center w-full md:w-full bg-[#f3eed7] rounded-3xl overflow-hidden border-none">
               <CardContent className="w-full md:h-[471px] flex flex-col items-center md:items-start gap-8 md:gap-0 md:justify-between p-6 md:p-0 md:flex-1">
-                <h2 className="text-center md:text-left md:pt-[40px] md:pl-[40px] [font-family:'Anton_SC',Helvetica] font-normal text-[#0f100d] text-[64px] tracking-[-1.80px] leading-[72px]">
-                  WHY THE $HANA?
+                <h2 className="text-center md:text-left md:pt-[40px] md:pl-[40px] [font-family:'Anton_SC',Helvetica] font-normal text-[#0f100d] text-[40px] sm:text-[48px] md:text-[64px] tracking-[-1.80px] leading-[1.1]">
+                  WHY $HANA?
                 </h2>
 
                 <div className="w-full md:hidden flex justify-center">
@@ -540,7 +625,7 @@ export const LHome = (): JSX.Element => {
 
               <div className="hidden md:flex items-center justify-end h-[471px]">
                 <img
-                  className="h-full w-auto object-cover"
+                  className="w-full max-h-[300px] object-contain"
                   alt="Persona reference"
                   src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreifzjgeauzkz3p57xbsl36dwxf7hzfgpo2hbmb6hbbwhu7g4dpwypu"
                 />
@@ -549,15 +634,15 @@ export const LHome = (): JSX.Element => {
 
             <Card className="flex flex-col md:flex-row items-center w-full md:w-full bg-[#f7b428] rounded-3xl overflow-hidden border-none">
               <CardContent className="w-full md:h-[357px] flex flex-col items-center md:items-start gap-8 md:gap-0 md:justify-between p-6 md:p-0 md:flex-1">
-                <h2 className="text-center md:text-left md:pt-[40px] md:pl-[40px] [font-family:'Anton_SC',Helvetica] font-normal text-[#0f100d] text-[64px] tracking-[-1.80px] leading-[72px]">
+                <h2 className="text-center md:text-left md:pt-[40px] md:pl-[40px] [font-family:'Anton_SC',Helvetica] font-normal text-[#0f100d] text-[40px] sm:text-[48px] md:text-[64px] tracking-[-1.80px] leading-[1.1]">
                   SUPPLY
                 </h2>
 
                 <div className="w-full md:hidden flex justify-center">
                   <img
                     className="h-[300px] w-auto object-contain"
-                    alt="Pie chart"
-                    src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreicm6o77rorkurljpfqsruk2p7vrosjo3nuwfz5zoyamp7gkrf6iuq"
+                    alt="Supply distribution chart"
+                    src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreiakukqi35fpkpvgeikoubzpoa6eums24eexkrhgbzjrxw4idqahve"
                   />
                 </div>
 
@@ -572,16 +657,16 @@ export const LHome = (): JSX.Element => {
 
               <div className="hidden md:flex items-center justify-end h-[357px]">
                 <img
-                  className="h-full w-auto object-contain pr-6"
-                  alt="Pie chart"
-                  src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreicm6o77rorkurljpfqsruk2p7vrosjo3nuwfz5zoyamp7gkrf6iuq"
+                  className="max-h-full w-auto object-contain pr-6"
+                  alt="Supply distribution chart"
+                  src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreiakukqi35fpkpvgeikoubzpoa6eums24eexkrhgbzjrxw4idqahve"
                 />
               </div>
             </Card>
 
             <Card className="flex flex-col md:flex-row items-center w-full md:w-full bg-[#a9cbb3] rounded-3xl overflow-hidden border-none">
               <CardContent className="w-full md:h-[471px] flex flex-col items-center md:items-start gap-8 md:gap-0 md:justify-between p-6 md:p-0 md:flex-1">
-                <h2 className="text-center md:text-left md:pt-[40px] md:pl-[40px] [font-family:'Anton_SC',Helvetica] font-normal text-[#0f100d] text-[64px] tracking-[-1.80px] leading-[72px]">
+                <h2 className="text-center md:text-left md:pt-[40px] md:pl-[40px] [font-family:'Anton_SC',Helvetica] font-normal text-[#0f100d] text-[40px] sm:text-[48px] md:text-[64px] tracking-[-1.80px] leading-[1.1]">
                   UNAGI
                 </h2>
 
@@ -605,7 +690,7 @@ export const LHome = (): JSX.Element => {
 
               <div className="hidden md:flex items-center justify-end h-[471px]">
                 <img
-                  className="h-[80%] w-auto object-cover"
+                  className="max-h-[80%] w-auto object-contain"
                   alt="Persona reference"
                   src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreid4dggkibnawm6xxb6drad524vedckvfg7kjlaehd4s6ot4xgwgtm"
                 />
@@ -614,7 +699,7 @@ export const LHome = (): JSX.Element => {
 
             <Card className="flex flex-col md:flex-row items-center w-full md:w-full bg-[#f5c8e9] rounded-3xl overflow-hidden border-none">
               <CardContent className="w-full md:h-[425px] flex flex-col items-center md:items-start gap-8 md:gap-0 md:justify-between p-6 md:p-0 md:flex-1">
-                <h2 className="text-center md:text-left md:pt-[40px] md:pl-[40px] [font-family:'Anton_SC',Helvetica] font-normal text-[#0f100d] text-[64px] tracking-[-1.80px] leading-[72px]">
+                <h2 className="text-center md:text-left md:pt-[40px] md:pl-[40px] [font-family:'Anton_SC',Helvetica] font-normal text-[#0f100d] text-[40px] sm:text-[48px] md:text-[64px] tracking-[-1.80px] leading-[1.1]">
                   MONETIZATION
                 </h2>
 
@@ -636,7 +721,7 @@ export const LHome = (): JSX.Element => {
 
               <div className="hidden md:flex items-center justify-end h-[425px]">
                 <img
-                  className="h-full w-auto object-cover"
+                  className="max-h-full w-auto object-contain"
                   alt="Camera"
                   src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreiee4okhigwwy3dxtvsdv2s3ieper7g63m4qcnwaorehejavprvgii"
                 />
@@ -683,22 +768,25 @@ export const LHome = (): JSX.Element => {
           <div className="relative self-stretch w-full h-16" />
 
           <div className="flex flex-col items-start px-4 md:px-[88px] py-0 relative self-stretch w-full flex-[0_0_auto]">
-            <div className="flex items-start relative self-stretch w-full flex-[0_0_auto]">
-              <div className="inline-flex flex-col items-start gap-8 relative flex-[0_0_auto] w-full md:w-auto">
+            <div className="flex flex-col md:flex-row items-start gap-12 md:gap-20 relative self-stretch w-full flex-[0_0_auto]">
+              <div className="flex flex-col items-start gap-8 relative w-full md:w-[200px]">
                 <div className="relative w-fit mt-[-1.00px] [font-family:'Helvetica_Now_Display-Medium',Helvetica] font-medium text-[#9d9994] text-xs tracking-[0] leading-3 whitespace-nowrap">
                   DISCOVER
                 </div>
 
                 <div className="flex flex-col items-start gap-6 relative self-stretch w-full flex-[0_0_auto]">
-                  <div className="mt-[-1.00px] font-display-s font-[number:var(--display-s-font-weight)] text-[length:var(--display-s-font-size)] tracking-[var(--display-s-letter-spacing)] leading-[var(--display-s-line-height)] relative w-fit text-[#0f100d] whitespace-nowrap [font-style:var(--display-s-font-style)]">
+                  <a 
+                    href="https://personajourney.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-[-1.00px] font-display-s font-[number:var(--display-s-font-weight)] text-[length:var(--display-s-font-size)] tracking-[var(--display-s-letter-spacing)] leading-[var(--display-s-line-height)] relative w-fit text-[#0f100d] whitespace-nowrap [font-style:var(--display-s-font-style)] hover:text-red-500 transition-colors duration-300"
+                  >
                     PERSONA
-                  </div>
+                  </a>
                 </div>
               </div>
 
-              <div className="relative self-stretch w-[370px]" />
-
-              <div className="inline-flex flex-col items-start gap-8 relative flex-[0_0_auto]">
+              <div className="flex flex-col items-start gap-8 relative w-full md:w-[200px]">
                 <div className="relative w-fit mt-[-1.00px] [font-family:'Helvetica_Now_Display-Medium',Helvetica] font-medium text-[#9d9994] text-xs tracking-[0] leading-3 whitespace-nowrap">
                   NAVIGATE
                 </div>
@@ -718,26 +806,58 @@ export const LHome = (): JSX.Element => {
                 </div>
               </div>
 
-              <div className="relative self-stretch w-[226px]" />
-
-              <div className="inline-flex flex-col h-[142px] items-start justify-between relative flex-[0_0_auto]">
+              <div className="flex flex-col items-start gap-8 relative w-full md:w-[200px] md:ml-auto">
                 <div className="inline-flex flex-col gap-8 flex-[0_0_auto] items-start relative">
                   <div className="relative self-stretch mt-[-1.00px] [font-family:'Helvetica_Now_Display-Medium',Helvetica] font-medium text-[#9d9994] text-xs tracking-[0] leading-3">
                     FOLLOW US
                   </div>
-
-                  <div className="flex items-center gap-6 relative self-stretch w-full flex-[0_0_auto] rounded">
+                  <a
+                    href="https://x.com/Persona_Journey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 relative self-stretch w-full flex-[0_0_auto] rounded hover:opacity-80 transition-opacity"
+                  >
                     <img
                       className="relative w-6 h-6"
                       alt="Brand icon"
-                      src="public/brandicon.svg"
+                      src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreihwzjn6vme7eq3mc3k6n6uif4knfshsftrym7t5iiwmxvevkm5jom"
                     />
-                  </div>
+                    <span className="text-[#0f100d] text-sm font-medium">Persona</span>
+                  </a>
+                  <a
+                    href="https://x.com/HanaPersona_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 relative self-stretch w-full flex-[0_0_auto] rounded hover:opacity-80 transition-opacity"
+                  >
+                    <img
+                      className="relative w-6 h-6"
+                      alt="Brand icon"
+                      src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreihwzjn6vme7eq3mc3k6n6uif4knfshsftrym7t5iiwmxvevkm5jom"
+                    />
+                    <span className="text-[#0f100d] text-sm font-medium">Hana</span>
+                  </a>
+                  <a
+                    href="https://x.com/Unagi_studio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 relative self-stretch w-full flex-[0_0_auto] rounded hover:opacity-80 transition-opacity"
+                  >
+                    <img
+                      className="relative w-6 h-6"
+                      alt="Brand icon"
+                      src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreihwzjn6vme7eq3mc3k6n6uif4knfshsftrym7t5iiwmxvevkm5jom"
+                    />
+                    <span className="text-[#0f100d] text-sm font-medium">Unagi</span>
+                  </a>
                 </div>
 
                 <div className="[font-family:'Helvetica_Now_Display-Bold',Helvetica] font-normal text-xl tracking-[0] leading-5 relative w-fit text-[#0f100d] whitespace-nowrap">
-                  <span className="font-[number:var(--body-LG-font-weight)] leading-[var(--body-LG-line-height)] underline font-body-LG [font-style:var(--body-LG-font-style)] tracking-[var(--body-LG-letter-spacing)] text-[length:var(--body-LG-font-size)]">
-                    contact@unagi.ch
+                  <span 
+                    onClick={handleEmailCopy}
+                    className="font-[number:var(--body-LG-font-weight)] leading-[var(--body-LG-line-height)] underline font-body-LG [font-style:var(--body-LG-font-style)] tracking-[var(--body-LG-letter-spacing)] text-[length:var(--body-LG-font-size)] cursor-pointer hover:text-red-500 transition-colors duration-300"
+                  >
+                    {showEmailCopied ? "Copied!" : "contact@unagi.games"}
                   </span>
                 </div>
               </div>
