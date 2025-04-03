@@ -28,6 +28,8 @@ interface Tape {
   thumbnail_url: string;
   persona_id?: string;
   created_at: string;
+  twitter_url?: string;
+  instagram_url?: string;
 }
 
 export const Tapes = (): JSX.Element => {
@@ -538,6 +540,36 @@ export const Tapes = (): JSX.Element => {
                           clipRule="evenodd" 
                         />
                       </svg>
+                    </a>
+                  )}
+                  {tape.twitter_url && (
+                    <a
+                      href={tape.twitter_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-8 h-8 rounded-full bg-[#0f100d]/80 hover:bg-[#0f100d] border border-[#E6E2DB]/20 transition-all hover:scale-110"
+                      title="View on Twitter"
+                    >
+                      <img
+                        src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreiajimis4qegepfwiof53qwulueztkwnzbe3fdqgzctlmegc3uu7iq"
+                        alt="Twitter"
+                        className="h-4 w-4 filter brightness-0 invert"
+                      />
+                    </a>
+                  )}
+                  {tape.instagram_url && (
+                    <a
+                      href={tape.instagram_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-8 h-8 rounded-full bg-[#0f100d]/80 hover:bg-[#0f100d] border border-[#E6E2DB]/20 transition-all hover:scale-110"
+                      title="View on Instagram"
+                    >
+                      <img
+                        src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreih35ztgpb6bvn5juej72qlapqgrmfcly5hk5tvm25ojvzkdxrmmdm"
+                        alt="Instagram"
+                        className="h-4 w-4 filter brightness-0 invert"
+                      />
                     </a>
                   )}
                 </div>
