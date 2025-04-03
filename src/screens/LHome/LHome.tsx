@@ -388,7 +388,7 @@ export const LHome = (): JSX.Element => {
 
         {/* Tapes Section */}
         <div id="tapes" className="inline-flex flex-col h-auto items-center gap-[30px] py-2.5 relative w-full">
-          <div className="relative w-full max-w-[1320px] h-auto md:h-[437px]">
+          <div className="relative w-full max-w-[1320px] h-auto md:h-[437px] bg-[#FEFAE9] rounded-3xl overflow-hidden border-0">
             <div className="p-0 relative h-full flex flex-col md:flex-row">
               <div className="relative w-full md:w-[500px] h-full z-10 overflow-hidden p-10 md:p-16 flex flex-col">
                 <div className="font-body-s text-[#0F100D] text-[length:var(--body-s-font-size)] tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)] font-normal">
