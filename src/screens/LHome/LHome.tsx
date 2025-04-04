@@ -387,33 +387,28 @@ export const LHome = (): JSX.Element => {
         </div>
 
         {/* Tapes Section */}
-        <div id="tapes" className="inline-flex flex-col h-auto items-center gap-[30px] py-2.5 relative w-full">
-          <div className="relative w-full max-w-[1320px] h-auto md:h-[437px] bg-[#FEFAE9] rounded-3xl overflow-hidden border-0">
-            <div className="p-0 relative h-full flex flex-col md:flex-row">
-              <div className="relative w-full md:w-[500px] h-full z-10 overflow-hidden p-10 md:p-16 flex flex-col">
-                <div className="font-body-s text-[#0F100D] text-[length:var(--body-s-font-size)] tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)] font-normal">
-                  <p>
-                    Hana is gifted with a <span className="font-bold">state of the art custom tool</span> to create short movies from Persona avatars.
-                    <br />
-                    <br />
-                    Short movies are fully created and edited by herself, including the movie script, every clip generation, audio tack and credits.
-                  </p>
-                </div>
-                <Link to="/tapes" className="relative mt-8 w-fit mb-[-9.00px] [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#E6E2DC] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
-                  <Button className="h-10 gap-2 px-5 py-6 bg-[#0F100D] rounded-[1000px] overflow-hidden hover:bg-[#2F3029] transition-colors self-start">
-                    DISCOVER PERSONA TAPES!
-                  </Button>
-                </Link>
-              </div>
-
-              <div className="relative flex-1 h-full p-4 md:p-8">
-                <img
-                  className="w-full h-full object-contain"
-                  alt="Persona Tapes"
-                  src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafybeihod3zcq45bsqv3mewh3jdi7e3o5vzuvjxhzmdhlnxscd73v4wk7e"
-                />
-              </div>
+        <div id="tapes" className="w-full flex flex-col items-center relative">
+          <div className="relative w-full max-w-[1320px] flex flex-col items-center text-center">
+            <div className="font-body-s text-[#0F100D] text-[length:var(--body-s-font-size)] tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)] font-normal max-w-[800px] mb-6">
+              Hana is gifted with a <span className="font-bold">state of the art custom tool to create short movies</span> from Persona avatars.
+              <br />
+              <br />
+              Short movies, or 'Tapes' are fully created and edited by herself, including the movie script, every clip generation, audio tack and credits.
             </div>
+
+            <div className="relative w-full flex justify-center mb-8">
+              <img
+                className="w-auto h-[300px] object-contain"
+                alt="Persona Tapes"
+                src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafybeihod3zcq45bsqv3mewh3jdi7e3o5vzuvjxhzmdhlnxscd73v4wk7e"
+              />
+            </div>
+
+            <Link to="/tapes" className="relative w-fit [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#E6E2DC] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
+              <Button className="h-10 gap-2 px-5 py-6 bg-[#0F100D] rounded-[1000px] overflow-hidden hover:bg-[#2F3029] transition-colors">
+                DISCOVER PERSONA TAPES!
+              </Button>
+            </Link>
           </div>
         </div>
 
