@@ -398,7 +398,7 @@ export const LHome = (): JSX.Element => {
 
             <div className="relative w-full flex justify-center mb-8">
               <img
-                className="w-auto h-[300px] object-contain"
+                className="w-auto h-[390px] object-contain"
                 alt="Persona Tapes"
                 src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafybeihod3zcq45bsqv3mewh3jdi7e3o5vzuvjxhzmdhlnxscd73v4wk7e"
               />
