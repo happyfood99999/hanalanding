@@ -593,6 +593,24 @@ export const LHome = (): JSX.Element => {
                 />
               </Button>
             </a>
+
+            <a
+              href="https://dexscreener.com/base/0x7B1b0E65E10AD90794Abf28db9F0a85edB8e6C8C"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 relative flex-[0_0_auto]"
+            >
+              <Button className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors">
+                <span className="relative w-fit mt-[-11.00px] mb-[-9.00px] [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
+                  DEXSCREENER
+                </span>
+                <img
+                  className="relative w-6 h-6 mt-[-16.00px] mb-[-16.00px]"
+                  alt="DEXSCREENER logo"
+                  src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreibnl6kr7coxynv2akyxdtvyi6nhjdyalt3yhjtm3ojephhyesa2vy"
+                />
+              </Button>
+            </a>
           </div>
 
           <div className="w-full max-w-[1320px] flex flex-col gap-5">
