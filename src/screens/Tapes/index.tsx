@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { createClient } from '@supabase/supabase-js';
+import { FloatingModal } from "../../components/ui/FloatingModal";
 
 // Initialize Supabase client
 const supabase = createClient(
@@ -249,6 +250,7 @@ export const Tapes = (): JSX.Element => {
 
   return (
     <main className="flex flex-col min-h-screen items-center gap-[50px] p-5 relative bg-[#0f100d]">
+      <FloatingModal />
       <div className="p-0 relative w-full max-w-[1280px] aspect-[16/9]">
         <div className="relative w-full aspect-[16/9]" onClick={handleTVFrameClick}>
           <img

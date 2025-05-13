@@ -4,6 +4,7 @@ import { Card, CardContent } from "../../components/ui/card";
 import { Separator } from "../../components/ui/separator";
 import { Copy } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FloatingModal } from "../../components/ui/FloatingModal";
 
 const shuffleText = (text: string): string => {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -63,12 +64,18 @@ const mediaCards = [
 // Data for agentic powers
 const agenticPowersLeft = [
   {
-    title: "CONTENT CREATION",
-    content: "• Image generation: Watercolors paintings generation\n• Image generation: Overlay assets of Personas\n• Image generation: Banner assets Personas\n• Image generation: Pictures of Personas in different locations of Timefall Valley\n• Video generation: animate persona avatars and various images\n\n4 custom SD workflows powered by custom LORAs."
+    title: "GEN AI POWERHOUSE",
+    content: (
+      <>
+        Hana is equipped of the latest AI generative tools: Kling 2.0, Vidu Q1, Luma Ray Flash 2.<br /><br />
+        Hana is also equipped with multiple custom workflows developed by the Persona team that users can explore on{' '}
+        <a href="https://hanastudios.ai" target="_blank" rel="noopener noreferrer" className="underline hover:text-red-500 transition-colors">hanastudios.ai</a>.
+      </>
+    ),
   },
   {
-    title: "ANIME NEWS",
-    content: "Generates quality social media posts about manga & anime news."
+    title: "ANIME CONTENT CREATOR",
+    content: "Hana shares quality anime & vibes content on her twitter account and Persona instagram account."
   },
   {
     title: "TRANSMEDIA INTERACTIONS",
@@ -217,6 +224,7 @@ export const LHome = (): JSX.Element => {
 
   return (
     <div className="flex items-start relative bg-[#e6e2dc] w-full min-h-screen overflow-x-hidden px-1 md:px-10">
+      <FloatingModal />
       <div className="flex flex-col items-center gap-[50px] px-4 md:px-0 pt-5 relative flex-1 grow w-full">
         {/* Hero Section */}
         <Card className="relative w-full max-w-[1516px] h-[800px] bg-[#0f100d] rounded-3xl overflow-hidden border-0">
@@ -383,32 +391,6 @@ export const LHome = (): JSX.Element => {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </div>
-
-        {/* Tapes Section */}
-        <div id="tapes" className="w-full flex flex-col items-center relative">
-          <div className="relative w-full max-w-[1320px] flex flex-col items-center text-center">
-            <div className="font-body-s text-[#0F100D] text-[length:var(--body-s-font-size)] tracking-[var(--body-s-letter-spacing)] leading-[var(--body-s-line-height)] [font-style:var(--body-s-font-style)] font-normal max-w-[800px] mb-6">
-              Hana is gifted with a <span className="font-bold">state of the art custom tool to create short movies</span> from Persona avatars.
-              <br />
-              <br />
-              Short movies, or 'Tapes' are fully created and edited by herself, including the movie script, every clip generation, audio tack and credits.
-            </div>
-
-            <div className="relative w-full flex justify-center mb-8">
-              <img
-                className="w-auto h-[390px] object-contain"
-                alt="Persona Tapes"
-                src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafybeihod3zcq45bsqv3mewh3jdi7e3o5vzuvjxhzmdhlnxscd73v4wk7e"
-              />
-            </div>
-
-            <Link to="/tapes" className="relative w-fit [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#E6E2DC] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
-              <Button className="h-10 gap-2 px-5 py-6 bg-[#0F100D] rounded-[1000px] overflow-hidden hover:bg-[#2F3029] transition-colors">
-                DISCOVER PERSONA TAPES!
-              </Button>
-            </Link>
           </div>
         </div>
 
