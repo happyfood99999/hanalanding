@@ -17,7 +17,6 @@ const shuffleText = (text: string): string => {
 // Data for navigation items
 const navItems = [
   { text: "PURPOSE", link: "#who-am-i" },
-  { text: "TAPES", link: "#tapes" },
   { text: "POWERS", link: "#powers" },
   { text: "MEDIA", link: "#media" },
   { text: "TOKEN", link: "#token" },
@@ -252,11 +251,11 @@ export const LHome = (): JSX.Element => {
                   className="inline-flex items-center gap-2 relative flex-[0_0_auto]"
                 >
                   <Button className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors">
-                    <span className="relative w-fit mt-[-11.00px] mb-[-9.00px] [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
+                    <span className="relative w-fit [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
                       HANA ON
                     </span>
                     <img
-                      className="relative w-6 h-6 mt-[-16.00px] mb-[-16.00px]"
+                      className="relative w-6 h-6"
                       alt="X icon"
                       src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreihwzjn6vme7eq3mc3k6n6uif4knfshsftrym7t5iiwmxvevkm5jom"
                     />
@@ -270,11 +269,11 @@ export const LHome = (): JSX.Element => {
                   className="hidden md:flex items-center gap-2 relative flex-[0_0_auto]"
                 >
                   <Button className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors">
-                    <span className="relative w-fit mt-[-11.00px] mb-[-9.00px] [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
+                    <span className="relative w-fit [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
                       HANA ON VIRTUALS
                     </span>
                     <img
-                      className="relative w-6 h-6 mt-[-16.00px] mb-[-16.00px]"
+                      className="relative w-6 h-6"
                       alt="Virtuals logo"
                       src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreidcspjjlbf6jyc5gec4ga7njsrvy6ytjwnw5judwonmqbyuv3gbe4"
                     />
