@@ -263,15 +263,23 @@ export const LHome = (): JSX.Element => {
                   </Button>
                 </a>
 
-                <Button 
-                  onClick={handleCopy}
-                  className="hidden md:flex h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors relative"
+                <a
+                  href="https://app.virtuals.io/virtuals/20453"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden md:flex items-center gap-2 relative flex-[0_0_auto]"
                 >
-                  <span className="relative w-[140px] mt-[-11.00px] mb-[-9.00px] font-sub-XS font-[number:var(--sub-XS-font-weight)] text-[#0f100d] text-[length:var(--sub-XS-font-size)] text-center tracking-[var(--sub-XS-letter-spacing)] leading-[var(--sub-XS-line-height)] whitespace-nowrap [font-style:var(--sub-XS-font-style)]">
-                    {showCopied ? "COPIED!" : "$HANA: 0X1CF...F4C9"}
-                  </span>
-                  <Copy className="relative w-5 h-5 mt-[-14.00px] mb-[-14.00px] text-[#0f100d]" />
-                </Button>
+                  <Button className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors">
+                    <span className="relative w-fit mt-[-11.00px] mb-[-9.00px] [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
+                      HANA ON VIRTUALS
+                    </span>
+                    <img
+                      className="relative w-6 h-6 mt-[-16.00px] mb-[-16.00px]"
+                      alt="Virtuals logo"
+                      src="https://emerald-famous-coyote-461.mypinata.cloud/ipfs/bafkreidcspjjlbf6jyc5gec4ga7njsrvy6ytjwnw5judwonmqbyuv3gbe4"
+                    />
+                  </Button>
+                </a>
               </div>
             </div>
 
