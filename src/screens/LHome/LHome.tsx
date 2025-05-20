@@ -4,7 +4,7 @@ import { Card, CardContent } from "../../components/ui/card";
 import { Separator } from "../../components/ui/separator";
 import { Copy } from "lucide-react";
 import { Link } from "react-router-dom";
-import { FloatingModal } from "../../components/ui/FloatingModal";
+import { FloatingModal, StakingModal } from "../../components/ui/FloatingModal";
 
 const shuffleText = (text: string): string => {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -118,6 +118,8 @@ export const LHome = (): JSX.Element => {
   const [titleText, setTitleText] = React.useState("HI,\nI'M HANA");
   const [isDesktop, setIsDesktop] = React.useState(window.innerWidth >= 768);
   const [showEmailCopied, setShowEmailCopied] = React.useState(false);
+  const [showHanaModal, setShowHanaModal] = React.useState(true);
+  const [showStakingModal, setShowStakingModal] = React.useState(true);
 
   React.useEffect(() => {
     const originalText = "HI,\nI'M HANA";
@@ -223,7 +225,8 @@ export const LHome = (): JSX.Element => {
 
   return (
     <div className="flex items-start relative bg-[#e6e2dc] w-full min-h-screen overflow-x-hidden px-1 md:px-10">
-      <FloatingModal />
+      <StakingModal open={showStakingModal} onClose={() => setShowStakingModal(false)} hanaOpen={showHanaModal} />
+      <FloatingModal open={showHanaModal} onClose={() => setShowHanaModal(false)} />
       <div className="flex flex-col items-center gap-[50px] px-4 md:px-0 pt-5 relative flex-1 grow w-full">
         {/* Hero Section */}
         <Card className="relative w-full max-w-[1516px] h-[800px] bg-[#0f100d] rounded-3xl overflow-hidden border-0">
@@ -244,11 +247,12 @@ export const LHome = (): JSX.Element => {
                   ))}
                 </div>
 
+                {/* HANA ON X button: only show on md+ */}
                 <a
                   href="https://x.com/HanaPersona_"
                   target="_blank"
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 relative flex-[0_0_auto]"
+                  className="hidden md:inline-flex items-center gap-2 relative flex-[0_0_auto]"
                 >
                   <Button className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors">
                     <span className="relative w-fit [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
@@ -262,11 +266,12 @@ export const LHome = (): JSX.Element => {
                   </Button>
                 </a>
 
+                {/* HANA ON VIRTUALS button: show on all screens, but visible on mobile */}
                 <a
                   href="https://app.virtuals.io/virtuals/20453"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden md:flex items-center gap-2 relative flex-[0_0_auto]"
+                  className="flex items-center gap-2 relative flex-[0_0_auto]"
                 >
                   <Button className="h-10 gap-2 px-5 py-6 bg-[#e6e2dc] rounded-[1000px] overflow-hidden hover:bg-[#d6d2cc] transition-colors">
                     <span className="relative w-fit [font-family:'Helvetica_Now_Display-Bold',Helvetica] font-bold text-[#0f100d] text-xs text-center tracking-[0] leading-3 whitespace-nowrap">
